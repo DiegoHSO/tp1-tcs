@@ -34,7 +34,8 @@ TARGET_BASE1=all_tests
 TARGET1 = $(TARGET_BASE1)$(TARGET_EXTENSION)
 SRC_FILES1=\
   $(UNITY_ROOT)/src/unity.c \
-  $(UNITY_ROOT)/extras/fixture/src/unity_fixture.c \
+  $(UNITY_ROOT)/extras/fixture/src/unity_fixture.c
+SRC_FILES=\
   src/bubble_sort.c \
   src/counting_sort.c \
   src/heap_sort.c \
@@ -63,7 +64,7 @@ sanitizer: clean sanitizer_compile run
 
 # analise estatica
 cppcheck:
-	cppcheck --enable=all --suppress=missingIncludeSystem $(SRC_FILES1)
+	cppcheck --enable=all --suppress=missingIncludeSystem $(SRC_FILES)
 
 # varias ferramentas de analise
 valgrind_run:
@@ -71,11 +72,11 @@ valgrind_run:
 
 # para encontrar leaks de memoria
 sanitizer_compile:
-	$(CLANG_COMPILER) -g -Wall -Wfatal-errors -fsanitize=address $(INC_DIRS) $(SRC_FILES1) -o $(TARGET1)
+	$(CLANG_COMPILER) -g -Wall -Wfatal-errors -fsanitize=address $(INC_DIRS) $(SRC_FILES1) $(SRC_FILES) -o $(TARGET1)
 
 # faz a cobertura de codigo (lembrar da aula com grafos)
 gcov: clean
-	$(C_COMPILER) -g -Wall -Wfatal-errors -fprofile-arcs -ftest-coverage $(INC_DIRS) $(SRC_FILES1) -o $(TARGET1)
+	$(C_COMPILER) -g -Wall -Wfatal-errors -fprofile-arcs -ftest-coverage $(INC_DIRS) $(SRC_FILES1) $(SRC_FILES) -o $(TARGET1)
 	./$(TARGET1)
 	gcov -b \
 	src/bubble_sort.c \
@@ -89,7 +90,7 @@ gcov: clean
 	src/sort.c
 
 compile:
-	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) -o $(TARGET1)
+	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) $(SRC_FILES) -o $(TARGET1)
 
 run:
 	- ./$(TARGET1) -v
