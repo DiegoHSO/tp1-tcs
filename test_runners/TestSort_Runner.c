@@ -1,42 +1,59 @@
 #include "unity.h"
 #include "unity_fixture.h"
 
-TEST_GROUP_RUNNER(Sort)
+TEST_GROUP_RUNNER(CountingSort)
 {
 
-  RUN_TEST_CASE(Sort, CountingSortOn2);
-  RUN_TEST_CASE(Sort, CountingSortOn);
-  RUN_TEST_CASE(Sort, CountingSortOnlogn);
+  RUN_TEST_CASE(CountingSort, CountingSortOn2);
+  RUN_TEST_CASE(CountingSort, CountingSortOn);
+  RUN_TEST_CASE(CountingSort, CountingSortOnlogn);
+}
 
-  RUN_TEST_CASE(Sort, RadixSortOn2);
-  RUN_TEST_CASE(Sort, RadixSortOn);
-  RUN_TEST_CASE(Sort, RadixSortOnlogn);
+TEST_GROUP_RUNNER(RadixSort)
+{
+    RUN_TEST_CASE(RadixSort, RadixSortOn2);
+    RUN_TEST_CASE(RadixSort, RadixSortOn);
+    RUN_TEST_CASE(RadixSort, RadixSortOnlogn);
+}
 
-  RUN_TEST_CASE(Sort, BubbleSortOn2);
-  RUN_TEST_CASE(Sort, BubbleSortOn);
-  RUN_TEST_CASE(Sort, BubbleSortOnlogn);
+TEST_GROUP_RUNNER(BubbleSort)
+{
+    RUN_TEST_CASE(BubbleSort, BubbleSortOn2);
+    RUN_TEST_CASE(BubbleSort, BubbleSortOn);
+    RUN_TEST_CASE(BubbleSort, BubbleSortOnlogn);
+}
 
-  RUN_TEST_CASE(Sort, InsertionSortOn2);
-  RUN_TEST_CASE(Sort, InsertionSortOn);
-  RUN_TEST_CASE(Sort, InsertionSortOnlogn);
+TEST_GROUP_RUNNER(InsertionSort)
+{
+    RUN_TEST_CASE(InsertionSort, InsertionSortOn2);
+    RUN_TEST_CASE(InsertionSort, InsertionSortOn);
+    RUN_TEST_CASE(InsertionSort, InsertionSortOnlogn);
+}
 
-  RUN_TEST_CASE(Sort, SelectionSortOn2);
-  RUN_TEST_CASE(Sort, SelectionSortOn);
-  RUN_TEST_CASE(Sort, SelectionSortOnlogn);
+TEST_GROUP_RUNNER(SelectionSort)
+{
+    RUN_TEST_CASE(SelectionSort, SelectionSortOn2);
+    RUN_TEST_CASE(SelectionSort, SelectionSortOn);
+    RUN_TEST_CASE(SelectionSort, SelectionSortOnlogn);
+}
 
-  RUN_TEST_CASE(Sort, HeapSortOn2);
-  RUN_TEST_CASE(Sort, HeapSortOn);
-  RUN_TEST_CASE(Sort, HeapSortOnlogn);
+TEST_GROUP_RUNNER(HeapSort)
+{
+    RUN_TEST_CASE(HeapSort, HeapSortOn2);
+    RUN_TEST_CASE(HeapSort, HeapSortOn);
+    RUN_TEST_CASE(HeapSort, HeapSortOnlogn);
+}
 
-  RUN_TEST_CASE(Sort, MergeSortOn2);
-  RUN_TEST_CASE(Sort, MergeSortOn);
-  RUN_TEST_CASE(Sort, MergeSortOnlogn);
+TEST_GROUP_RUNNER(MergeSort)
+{
+    RUN_TEST_CASE(MergeSort, MergeSortOn2);
+    RUN_TEST_CASE(MergeSort, MergeSortOn);
+    RUN_TEST_CASE(MergeSort, MergeSortOnlogn);
+}
 
-  RUN_TEST_CASE(Sort, QuickSortOn2);
-  RUN_TEST_CASE(Sort, QuickSortOn);
-  RUN_TEST_CASE(Sort, QuickSortOnlogn);
-
-
-  
-  
+TEST_GROUP_RUNNER(QuickSort)
+{
+    RUN_TEST_CASE(QuickSort, QuickSortOn2);
+    RUN_TEST_CASE(QuickSort, QuickSortOn);
+    RUN_TEST_CASE(QuickSort, QuickSortOnlogn);
 }

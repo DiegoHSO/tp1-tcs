@@ -44,7 +44,14 @@ SRC_FILES1=\
   src/radix_sort.c \
   src/selection_sort.c \
   src/sort.c \
-  TestSort.c \
+  tests/TestBubbleSort.c \
+  tests/TestCountingSort.c \
+  tests/TestHeapSort.c \
+  tests/TestInsertionSort.c \
+  tests/TestMergeSort.c \
+  tests/TestQuickSort.c \
+  tests/TestRadixSort.c \
+  tests/TestSelectionSort.c \
   test_runners/TestSort_Runner.c \
   test_runners/all_tests.c
 INC_DIRS=-Isrc -I$(UNITY_ROOT)/src -I$(UNITY_ROOT)/extras/fixture/src
