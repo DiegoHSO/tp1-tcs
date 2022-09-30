@@ -20,6 +20,12 @@ TEST_TEAR_DOWN(HeapSort)
 {
 }
 
+TEST(HeapSort, HeapSortOnlognArrayCheck)
+{
+    sort(array, 5, (char*)"Onlogn", HEAP);
+    TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 5);
+}
+
 TEST(HeapSort, HeapSortOnArrayCheck)
 {
     sort(array, 5, (char*)"On", HEAP);
@@ -32,11 +38,6 @@ TEST(HeapSort, HeapSortOn2ArrayCheck)
     TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
 }
 
-TEST(HeapSort, HeapSortOnlognArrayCheck)
-{
-    sort(array, 5, (char*)"Onlogn", HEAP);
-    TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 5);
-}
 
 TEST(HeapSort, HeapSortOnlognFuncReturn)
 {

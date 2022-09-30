@@ -20,16 +20,16 @@ TEST_TEAR_DOWN(InsertionSort)
 {
 }
 
-TEST(InsertionSort, InsertionSortOnArrayCheck)
-{
-    sort(array, 5, (char*)"On", INSERTION);
-    TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
-}
-
 TEST(InsertionSort, InsertionSortOn2ArrayCheck)
 {
     sort(array, 5, (char*)"On2", INSERTION);
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 5);
+}
+
+TEST(InsertionSort, InsertionSortOnArrayCheck)
+{
+    sort(array, 5, (char*)"On", INSERTION);
+    TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
 }
 
 TEST(InsertionSort, InsertionSortOnlognArrayCheck)

@@ -20,6 +20,12 @@ TEST_TEAR_DOWN(MergeSort)
 {
 }
 
+TEST(MergeSort, MergeSortOnlognArrayCheck)
+{
+    sort(array, 5, (char*)"Onlogn", MERGE);
+    TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 5);
+}
+
 TEST(MergeSort, MergeSortOnArrayCheck)
 {
     sort(array, 5, (char*)"On", MERGE);
@@ -32,11 +38,6 @@ TEST(MergeSort, MergeSortOn2ArrayCheck)
     TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
 }
 
-TEST(MergeSort, MergeSortOnlognArrayCheck)
-{
-    sort(array, 5, (char*)"Onlogn", MERGE);
-    TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 5);
-}
 
 TEST(MergeSort, MergeSortOnlognFuncReturn)
 {

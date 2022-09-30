@@ -22,6 +22,12 @@ TEST_TEAR_DOWN(QuickSort)
 {
 }
 
+TEST(QuickSort, QuickSortOnlognArrayCheck)
+{
+    sort(array, 5, (char*)"Onlogn", QUICK);
+    TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 5);
+}
+
 TEST(QuickSort, QuickSortOnArrayCheck)
 {
     sort(array, 5, (char*)"On", QUICK);
@@ -32,12 +38,6 @@ TEST(QuickSort, QuickSortOn2ArrayCheck)
 {
     sort(array, 5, (char*)"On2", QUICK);
     TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
-}
-
-TEST(QuickSort, QuickSortOnlognArrayCheck)
-{
-    sort(array, 5, (char*)"Onlogn", QUICK);
-    TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 5);
 }
 
 TEST(QuickSort, QuickSortOnlognFuncReturn)

@@ -20,16 +20,16 @@ TEST_TEAR_DOWN(SelectionSort)
 {
 }
 
-TEST(SelectionSort, SelectionSortOnArrayCheck)
-{
-    sort(array, 5, (char*)"On", SELECTION);
-    TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
-}
-
 TEST(SelectionSort, SelectionSortOn2ArrayCheck)
 {
     sort(array, 5, (char*)"On2", SELECTION);
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 5);
+}
+
+TEST(SelectionSort, SelectionSortOnArrayCheck)
+{
+    sort(array, 5, (char*)"On", SELECTION);
+    TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
 }
 
 TEST(SelectionSort, SelectionSortOnlognArrayCheck)
