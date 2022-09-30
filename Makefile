@@ -6,7 +6,7 @@
 
 #We try to detect the OS we are running on, and adjust commands as needed
 
-CLEANUP = rm -f
+CLEANUP = rm -fr
 MKDIR = mkdir -p
 TARGET_EXTENSION=.out
 GCNO_EXTENSION=.gcno
@@ -58,6 +58,8 @@ SRC_FILES=\
   tests/TestSelectionSort.c \
   test_runners/TestSort_Runner.c \
   test_runners/all_tests.c
+
+
 INC_DIRS=-Isrc -I$(UNITY_ROOT)/src -I$(UNITY_ROOT)/extras/fixture/src
 SYMBOLS=
 
@@ -78,19 +80,19 @@ sanitizer_compile:
 	$(CLANG_COMPILER) -g -Wall -Wfatal-errors -fsanitize=address $(INC_DIRS) $(SRC_FILES1) $(SRC_FILES) -o $(TARGET1)
 
 # faz a cobertura de codigo (lembrar da aula com grafos)
-gcov: clean
-	$(C_COMPILER) -g -Wall -Wfatal-errors -fprofile-arcs -ftest-coverage $(INC_DIRS) $(SRC_FILES1) $(SRC_FILES) -o $(TARGET1)
-	./$(TARGET1)
-	@mv bubble_sort.gcno counting_sort.gcno heap_sort.gcno insertion_sort.gcno merge_sort.gcno quick_sort.gcno radix_sort.gcno selection_sort.gcno sort.gcno src
-  # @mv TestBubbleSort.gcno TestCountingSort.gcno TestHeapSort.gcno TestInsertionSort.gcno TestMergeSort.gcno TestQuickSort.gcno TestRadixSort.gcno TestSelectionSort.gcno tests
-  # @mv all_tests.gcno TestSort_Runner.gcno test_runners
-	gcov -b $(SRC_FILES)
-
 compile:
 	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) $(SRC_FILES) -o $(TARGET1)
+
+gcov: clean gcov_compile run gcov_run
+
+gcov_compile:
+	$(C_COMPILER) -g -Wall -Wfatal-errors -fprofile-arcs -ftest-coverage $(INC_DIRS) $(SRC_FILES1) $(SRC_FILES) -o $(TARGET1)
+
+gcov_run:
+	gcov -b counting_sort radix_sort heap_sort insertion_sort merge_sort quick_sort selection_sort bubble_sort sort
 
 run:
 	- ./$(TARGET1) -v
 
 clean:
-	$(CLEANUP) $(TARGET1) src/*$(GCNO_EXTENSION) *$(GCNO_EXTENSION) *$(GCDA_EXTENSION) *$(GCOV_EXTENSION)
+	$(CLEANUP) $(TARGET1) *.gc*
