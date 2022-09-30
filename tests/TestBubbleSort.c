@@ -13,6 +13,7 @@ static int expected[] = { 1, 2, 3, 4, 5 };
 
 TEST_SETUP(BubbleSort)
 {
+    memcpy(array, fail, sizeof(fail));
 }
 
 TEST_TEAR_DOWN(BubbleSort)
@@ -21,19 +22,19 @@ TEST_TEAR_DOWN(BubbleSort)
 
 TEST(BubbleSort, BubbleSortOn2ArrayCheck)
 {
-    int res = sort(array, 5, (char*)"On2", BUBBLE);;
+     sort(array, 5, (char*)"On2", BUBBLE);;
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 5);
 }
 
 TEST(BubbleSort, BubbleSortOnArrayCheck)
 {
-    int res = sort(array, 5, (char*)"On", BUBBLE);
+    sort(array, 5, (char*)"On", BUBBLE);
     TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
 }
 
 TEST(BubbleSort, BubbleSortOnlognArrayCheck)
 {
-    int res = sort(array, 5, (char*)"Onlogn", BUBBLE);
+    sort(array, 5, (char*)"Onlogn", BUBBLE);
     TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
 }
 
