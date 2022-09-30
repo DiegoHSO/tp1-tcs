@@ -9,6 +9,9 @@
 CLEANUP = rm -f
 MKDIR = mkdir -p
 TARGET_EXTENSION=.out
+GCNO_EXTENSION=.gcno
+GCDA_EXTENSION=.gcda
+GCOV_EXTENSION=.gcov
 
 C_COMPILER=gcc
 CLANG_COMPILER=clang
@@ -78,16 +81,10 @@ sanitizer_compile:
 gcov: clean
 	$(C_COMPILER) -g -Wall -Wfatal-errors -fprofile-arcs -ftest-coverage $(INC_DIRS) $(SRC_FILES1) $(SRC_FILES) -o $(TARGET1)
 	./$(TARGET1)
-	gcov -b \
-	src/bubble_sort.c \
-	src/counting_sort.c \
-	src/heap_sort.c \
-	src/insertion_sort.c \
-	src/merge_sort.c \
-	src/quick_sort.c \
-	src/radix_sort.c \
-	src/selection_sort.c \
-	src/sort.c
+	@mv bubble_sort.gcno counting_sort.gcno heap_sort.gcno insertion_sort.gcno merge_sort.gcno quick_sort.gcno radix_sort.gcno selection_sort.gcno sort.gcno src
+  # @mv TestBubbleSort.gcno TestCountingSort.gcno TestHeapSort.gcno TestInsertionSort.gcno TestMergeSort.gcno TestQuickSort.gcno TestRadixSort.gcno TestSelectionSort.gcno tests
+  # @mv all_tests.gcno TestSort_Runner.gcno test_runners
+	gcov -b $(SRC_FILES)
 
 compile:
 	$(C_COMPILER) $(CFLAGS) $(INC_DIRS) $(SYMBOLS) $(SRC_FILES1) $(SRC_FILES) -o $(TARGET1)
@@ -96,4 +93,4 @@ run:
 	- ./$(TARGET1) -v
 
 clean:
-	$(CLEANUP) $(TARGET1)
+	$(CLEANUP) $(TARGET1) src/*$(GCNO_EXTENSION) *$(GCNO_EXTENSION) *$(GCDA_EXTENSION) *$(GCOV_EXTENSION)
