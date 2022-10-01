@@ -25,11 +25,12 @@ jobs:
     - name: unity
       run: make unity
     
-    - name: valgrind
-      run: make valgrind
-
     - name: sanitizer
       run: make sanitizer
 
     - name: gcov
       run: make gcov
+
+    - name: valgrind
+      run: make valgrind
+
