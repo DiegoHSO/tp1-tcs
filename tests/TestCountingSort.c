@@ -63,10 +63,22 @@ TEST(CountingSort, CountingSortOnLowercased)
     TEST_ASSERT_EQUAL_INT(1, res);
 }
 
+TEST(CountingSort, CountingSortOnLowercasedArrayCheck)
+{
+    sort(array, 5, (char*)"on", COUNTING);
+    TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
+}
+
 TEST(CountingSort, CountingSortOnUppercased)
 {
     int res = sort(array, 5, (char*)"ON", COUNTING);
     TEST_ASSERT_EQUAL_INT(1, res);
+}
+
+TEST(CountingSort, CountingSortOnUppercasedArrayCheck)
+{
+    sort(array, 5, (char*)"ON", COUNTING);
+    TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
 }
 
 TEST(CountingSort, CountingSortOnToggled)
@@ -75,10 +87,34 @@ TEST(CountingSort, CountingSortOnToggled)
     TEST_ASSERT_EQUAL_INT(1, res);
 }
 
+TEST(CountingSort, CountingSortOnToggledArrayCheck)
+{
+    sort(array, 5, (char*)"oN", COUNTING);
+    TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
+}
+
+TEST(CountingSort, CountingSortOnWithSpace)
+{
+    int res = sort(array, 5, (char*)"On ", COUNTING);
+    TEST_ASSERT_EQUAL_INT(1, res);
+}
+
+TEST(CountingSort, CountingSortOnWithSpaceArrayCheck)
+{
+    sort(array, 5, (char*)"On ", COUNTING);
+    TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
+}
+
 TEST(CountingSort, CountingSortOnEmpty)
 {
     int res = sort(array, 5, (char*)"", COUNTING);
     TEST_ASSERT_EQUAL_INT(1, res);
+}
+
+TEST(CountingSort, CountingSortOnEmptyArrayCheck)
+{
+    sort(array, 5, (char*)"", COUNTING);
+    TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
 }
 
 TEST(CountingSort, CountingSortOnLowerBound)
@@ -88,7 +124,7 @@ TEST(CountingSort, CountingSortOnLowerBound)
     TEST_ASSERT_EQUAL_INT(0, res);
 }
 
-TEST(CountingSort, CountingSortOnLowerBoundArray)
+TEST(CountingSort, CountingSortOnLowerBoundArrayCheck)
 {
     static int array[] = { 8, 2 };
     static int expected[] = { 2, 8 };
@@ -103,7 +139,7 @@ TEST(CountingSort, CountingSortOnUpperBound)
     TEST_ASSERT_EQUAL_INT(0, res);
 }
 
-TEST(CountingSort, CountingSortOnUpperBoundArray)
+TEST(CountingSort, CountingSortOnUpperBoundArrayCheck)
 {
     static int array[] = { 8, 18, 1, 20, 5, 2, 19, 10, 4, 3, 15, 11, 6, 14, 7, 9, 17, 12, 13, 16};
     static int expected[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
@@ -125,7 +161,7 @@ TEST(CountingSort, CountingSortOnInvalidUpperBound)
     TEST_ASSERT_EQUAL_INT(1, res);
 }
 
-TEST(CountingSort, CountingSortOnInvalidUpperBoundArray)
+TEST(CountingSort, CountingSortOnInvalidUpperBoundArrayCheck)
 {
     static int array[] = { 8, 18, 1, 20, 5, 2, 19, 10, 4, 3, 15, 11, 6, 14, 7, 9, 17, 12, 13, 16, 21};
     static int fail[] = { 8, 18, 1, 20, 5, 2, 19, 10, 4, 3, 15, 11, 6, 14, 7, 9, 17, 12, 13, 16, 21};
@@ -153,7 +189,7 @@ TEST(CountingSort, CountingSortOnMuchBiggerUpperBound)
     TEST_ASSERT_EQUAL_INT(1, res);
 }
 
-TEST(CountingSort, CountingSortOnMuchBiggerUpperBoundArray)
+TEST(CountingSort, CountingSortOnMuchBiggerUpperBoundArrayCheck)
 {
     static int array[] = { 80, 18, 100, 20, 5, 2, 19, 10, 4, 3, 15, 11, 6, 14, 7, 9, 17, 12, 13, 16, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 70, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 50, 71, 72, 73, 74, 75, 76, 77, 78, 79, 8, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 1};
     static int fail[] = { 80, 18, 100, 20, 5, 2, 19, 10, 4, 3, 15, 11, 6, 14, 7, 9, 17, 12, 13, 16, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 70, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 50, 71, 72, 73, 74, 75, 76, 77, 78, 79, 8, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 1};
@@ -167,10 +203,22 @@ TEST(CountingSort, CountingSortInvalidAlgorithm)
     TEST_ASSERT_EQUAL_INT(1, res);
 }
 
+TEST(CountingSort, CountingSortInvalidAlgorithmArrayCheck)
+{
+    sort(array, 5, (char*)"On", 100);
+    TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
+}
+
 TEST(CountingSort, CountingSortInvalidAlgorithm2)
 {
     int res = sort(array, 5, (char*)"On", -1);
     TEST_ASSERT_EQUAL_INT(1, res);
+}
+
+TEST(CountingSort, CountingSortInvalidAlgorithm2ArrayCheck)
+{
+    sort(array, 5, (char*)"On", -1);
+    TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
 }
 
 /* crashando o programa
