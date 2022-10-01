@@ -15,15 +15,18 @@ TEST_GROUP_RUNNER(CountingSort)
     RUN_TEST_CASE(CountingSort, CountingSortOnLowercased);
     RUN_TEST_CASE(CountingSort, CountingSortOnUppercased);
     RUN_TEST_CASE(CountingSort, CountingSortOnToggled);
+    RUN_TEST_CASE(CountingSort, CountingSortOnEmpty);
     RUN_TEST_CASE(CountingSort, CountingSortOnLowerBound);
     RUN_TEST_CASE(CountingSort, CountingSortOnLowerBoundArray);
     RUN_TEST_CASE(CountingSort, CountingSortOnUpperBound);
     RUN_TEST_CASE(CountingSort, CountingSortOnUpperBoundArray);
     RUN_TEST_CASE(CountingSort, CountingSortOnInvalidLowerBound);
     RUN_TEST_CASE(CountingSort, CountingSortOnInvalidUpperBound);
+    RUN_TEST_CASE(CountingSort, CountingSortOnInvalidUpperBoundArray);
     RUN_TEST_CASE(CountingSort, CountingSortOnLengthZero);
     RUN_TEST_CASE(CountingSort, CountingSortOnNullArray);
     RUN_TEST_CASE(CountingSort, CountingSortOnMuchBiggerUpperBound);
+    RUN_TEST_CASE(CountingSort, CountingSortOnMuchBiggerUpperBoundArray);
     RUN_TEST_CASE(CountingSort, CountingSortInvalidAlgorithm);
     RUN_TEST_CASE(CountingSort, CountingSortInvalidAlgorithm2);
 }
