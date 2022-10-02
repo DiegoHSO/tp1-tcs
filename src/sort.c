@@ -6,6 +6,7 @@ int sort(int* a, int length, char* type, int algorithm) {
 	memcpy(s,a,sizeof(int)*(length));
 	if (length < 2 || length > 20)
 		status = 1;
+		
     switch(algorithm){
         case COUNTING:
 			if (!strcmp(type,"On"))
