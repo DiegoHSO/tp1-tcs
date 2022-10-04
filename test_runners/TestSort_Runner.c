@@ -96,6 +96,9 @@ TEST_GROUP_RUNNER(RadixSort)
 
     RUN_TEST_CASE(RadixSort, RadixSortInvalidAlgorithm2);
     RUN_TEST_CASE(RadixSort, RadixSortInvalidAlgorithm2ArrayCheck);
+
+    RUN_TEST_CASE(RadixSort, RadixSortOnUpperBoundContentsArrayCheck);
+    RUN_TEST_CASE(RadixSort, RadixSortOnFloatArrayCheck);
 }
 
 TEST_GROUP_RUNNER(BubbleSort)
@@ -144,6 +147,12 @@ TEST_GROUP_RUNNER(BubbleSort)
 
     RUN_TEST_CASE(BubbleSort, BubbleSortInvalidAlgorithm2);
     RUN_TEST_CASE(BubbleSort, BubbleSortInvalidAlgorithm2ArrayCheck);
+
+    RUN_TEST_CASE(BubbleSort, BubbleSortOn2UpperBoundContentsArrayCheck);
+    RUN_TEST_CASE(BubbleSort, BubbleSortOn2BiggerThanUpperBoundContentsArrayCheck);
+    RUN_TEST_CASE(BubbleSort, BubbleSortOn2FloatArrayCheck);
+    RUN_TEST_CASE(BubbleSort, BubbleSortOn2NegAndPosValuesArrayCheck);
+    RUN_TEST_CASE(BubbleSort, BubbleSortOn2NegativeValuesArrayCheck);
 }
 
 TEST_GROUP_RUNNER(InsertionSort)
@@ -192,6 +201,12 @@ TEST_GROUP_RUNNER(InsertionSort)
 
     RUN_TEST_CASE(InsertionSort, InsertionSortInvalidAlgorithm2);
     RUN_TEST_CASE(InsertionSort, InsertionSortInvalidAlgorithm2ArrayCheck);
+
+    RUN_TEST_CASE(InsertionSort, InsertionSortOn2UpperBoundContentsArrayCheck);
+    RUN_TEST_CASE(InsertionSort, InsertionSortOn2BiggerThanUpperBoundContentsArrayCheck);
+    RUN_TEST_CASE(InsertionSort, InsertionSortOn2FloatArrayCheck);
+    RUN_TEST_CASE(InsertionSort, InsertionSortOn2NegAndPosValuesArrayCheck);
+    RUN_TEST_CASE(InsertionSort, InsertionSortOn2NegativeValuesArrayCheck);
 }
 
 TEST_GROUP_RUNNER(SelectionSort)
@@ -240,6 +255,12 @@ TEST_GROUP_RUNNER(SelectionSort)
 
     RUN_TEST_CASE(SelectionSort, SelectionSortInvalidAlgorithm2);
     RUN_TEST_CASE(SelectionSort, SelectionSortInvalidAlgorithm2ArrayCheck);
+
+    RUN_TEST_CASE(SelectionSort, SelectionSortOn2UpperBoundContentsArrayCheck);
+    RUN_TEST_CASE(SelectionSort, SelectionSortOn2BiggerThanUpperBoundContentsArrayCheck);
+    RUN_TEST_CASE(SelectionSort, SelectionSortOn2FloatArrayCheck);
+    RUN_TEST_CASE(SelectionSort, SelectionSortOn2NegAndPosValuesArrayCheck);
+    RUN_TEST_CASE(SelectionSort, SelectionSortOn2NegativeValuesArrayCheck);
 }
 
 TEST_GROUP_RUNNER(HeapSort)
@@ -277,11 +298,6 @@ TEST_GROUP_RUNNER(HeapSort)
     RUN_TEST_CASE(HeapSort, HeapSortOnlognInvalidUpperBound);
     RUN_TEST_CASE(HeapSort, HeapSortOnlognInvalidUpperBoundArrayCheck);
 
-    /* crashando
-    // RUN_TEST_CASE(HeapSort, HeapSortOnlognLengthZero);
-    // RUN_TEST_CASE(HeapSort, HeapSortOnlognNullArray);
-    */
-
     RUN_TEST_CASE(HeapSort, HeapSortOnlognMuchBiggerUpperBound);
     RUN_TEST_CASE(HeapSort, HeapSortOnlognMuchBiggerUpperBoundArrayCheck);
 
@@ -290,6 +306,12 @@ TEST_GROUP_RUNNER(HeapSort)
 
     RUN_TEST_CASE(HeapSort, HeapSortInvalidAlgorithm2);
     RUN_TEST_CASE(HeapSort, HeapSortInvalidAlgorithm2ArrayCheck);
+
+    RUN_TEST_CASE(HeapSort, HeapSortOnlognUpperBoundContentsArrayCheck);
+    RUN_TEST_CASE(HeapSort, HeapSortOnlognBiggerThanUpperBoundContentsArrayCheck);
+    RUN_TEST_CASE(HeapSort, HeapSortOnlognFloatArrayCheck);
+    RUN_TEST_CASE(HeapSort, HeapSortOnlognNegAndPosValuesArrayCheck);
+    RUN_TEST_CASE(HeapSort, HeapSortOnlognNegativeValuesArrayCheck);
 }
 
 TEST_GROUP_RUNNER(MergeSort)
@@ -339,6 +361,11 @@ TEST_GROUP_RUNNER(MergeSort)
     RUN_TEST_CASE(MergeSort, MergeSortInvalidAlgorithm2);
     RUN_TEST_CASE(MergeSort, MergeSortInvalidAlgorithm2ArrayCheck);
 
+    RUN_TEST_CASE(MergeSort, MergeSortOnlognUpperBoundContentsArrayCheck);
+    RUN_TEST_CASE(MergeSort, MergeSortOnlognBiggerThanUpperBoundContentsArrayCheck);
+    RUN_TEST_CASE(MergeSort, MergeSortOnlognFloatArrayCheck);
+    RUN_TEST_CASE(MergeSort, MergeSortOnlognNegAndPosValuesArrayCheck);
+    RUN_TEST_CASE(MergeSort, MergeSortOnlognNegativeValuesArrayCheck);
 }
 
 TEST_GROUP_RUNNER(QuickSort)
@@ -387,4 +414,10 @@ TEST_GROUP_RUNNER(QuickSort)
 
     RUN_TEST_CASE(QuickSort, QuickSortInvalidAlgorithm2);
     RUN_TEST_CASE(QuickSort, QuickSortInvalidAlgorithm2ArrayCheck);
+
+    RUN_TEST_CASE(QuickSort, QuickSortOnlognUpperBoundContentsArrayCheck);
+    RUN_TEST_CASE(QuickSort, QuickSortOnlognBiggerThanUpperBoundContentsArrayCheck);
+    RUN_TEST_CASE(QuickSort, QuickSortOnlognFloatArrayCheck);
+    RUN_TEST_CASE(QuickSort, QuickSortOnlognNegAndPosValuesArrayCheck);
+    RUN_TEST_CASE(QuickSort, QuickSortOnlognNegativeValuesArrayCheck);
 }

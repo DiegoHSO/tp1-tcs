@@ -221,11 +221,12 @@ TEST(CountingSort, CountingSortInvalidAlgorithm2ArrayCheck)
     TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
 }
 
+
 /* crashando o programa
 
 TEST(CountingSort, CountingSortOnUpperBoundContentsArrayCheck)
 {
-    static int array[] = { 2147483447, 2044483647, 56237, 21, 0, 2147483647, 13131313, 1947483647, 13, 21474647};
+    static int array[] = { 2147483447, 2044483647, 56237, 21, 0, 2147483647, 13131313, 1947483647, 13, 21474647 };
     static int expected[] = { 0, 13, 21, 56237, 13131313, 21474647, 1947483647, 2044483647, 2147483447, 2147483647 };
     sort(array, 10, (char*)"On", COUNTING);
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 10);
@@ -234,20 +235,20 @@ TEST(CountingSort, CountingSortOnUpperBoundContentsArrayCheck)
 TEST(CountingSort, CountingSortOnBiggerThanUpperBoundContentsArrayCheck)
 {
     static int array[] = { 2147483648, 2147483646, 2147483647 };
-    static int expected[] = { 2147483646, 2147483647, 2147483648 };
+    static int expected[] =  { -2147483648, 2147483646, 2147483647 };
     sort(array, 3, (char*)"On", COUNTING);
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 3);
 }
 
- TEST(CountingSort, CountingSortOnFloatArray)
+ TEST(CountingSort, CountingSortOnFloatArrayCheck)
 {
-    static float array[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0};
-    static float expected[] = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0};
+    static float array[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
+    static float fail[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
     sort(array, 18, (char*)"On", COUNTING);
-    TEST_ASSERT_EQUAL_FLOAT_ARRAY(expected, array, 18);
+    TEST_ASSERT_EQUAL_FLOAT_ARRAY(fail, array, 18);
 }
 
-TEST(CountingSort, CountingSortOnNegAndPosValues)
+TEST(CountingSort, CountingSortOnNegAndPosValuesArrayCheck)
 {
     static int array[] = { 5, -2, 3, 0, -1, 2, 1, 4, -3 };
     static int expected[] = { -3, -2, -1, 0, 1, 2, 3, 4, 5 };
@@ -256,7 +257,7 @@ TEST(CountingSort, CountingSortOnNegAndPosValues)
 }
 
 
-TEST(CountingSort, CountingSortOnNegativeValues)
+TEST(CountingSort, CountingSortOnNegativeValuesArrayCheck)
 {
     static int array[] = { -8, -18, -1, -5, -2, -19, -10, -4, -3, -15, -11, -6, -14, -7, -9, -17, -12, -13, -16 };
     static int expected[] = { -19, -18, -17, -16, -15, -14, -13, -12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1 };
@@ -270,9 +271,34 @@ TEST(CountingSort, CountingSortOnNullString)
     TEST_ASSERT_EQUAL_INT(1, res);
 }
 
+TEST(CountingSort, CountingSortOnNullStringArrayCheck)
+{
+    sort(array, 5, NULL, COUNTING);
+    TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
+}
+
 TEST(CountingSort, CountingSortOnNegativeLength)
 {
     int res = sort(array, -1, (char*)"On", COUNTING);
     TEST_ASSERT_EQUAL_INT(1, res);
+}
+
+TEST(CountingSort, CountingSortOnNegativeLengthArrayCheck)
+{
+    sort(array, -1, (char*)"On", COUNTING);
+    TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
+}
+
+TEST(CountingSort, CountingSortOnNullArrayWithInvalidLength)
+{
+    int res = sort(NULL, 5, (char*)"On", COUNTING);
+    TEST_ASSERT_EQUAL_INT(1, res);
+}
+
+TEST(CountingSort, CountingSortOnNullArrayWithInvalidLengthArrayCheck)
+{
+    static int *array = NULL;
+    sort(array, 5, (char*)"On", COUNTING);
+    TEST_ASSERT_EQUAL(NULL, array);
 }
 */
