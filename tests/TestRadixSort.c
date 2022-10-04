@@ -233,9 +233,9 @@ TEST(RadixSort, RadixSortOnUpperBoundContentsArrayCheck)
  TEST(RadixSort, RadixSortOnFloatArrayCheck)
 {
     static float array[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
-    static float expected[] = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 20.0 };
+    static float fail[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
     sort(array, 18, (char*)"On", RADIX);
-    TEST_ASSERT_EQUAL_FLOAT_ARRAY(expected, array, 18);
+    TEST_ASSERT_EQUAL_FLOAT_ARRAY(fail, array, 18);
 }
 
 /* crashando o programa
