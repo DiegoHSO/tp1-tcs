@@ -225,14 +225,6 @@ TEST(HeapSort, HeapSortOnlognBiggerThanUpperBoundContentsArrayCheck)
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 3);
 }
 
- TEST(HeapSort, HeapSortOnlognFloatArrayCheck)
-{
-    static float array[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
-    static float fail[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
-    sort(array, 18, (char*)"Onlogn", HEAP);
-    TEST_ASSERT_EQUAL_FLOAT_ARRAY(fail, array, 18);
-}
-
 TEST(HeapSort, HeapSortOnlognNegAndPosValuesArrayCheck)
 {
     static int array[] = { 5, -2, 3, 0, -1, 2, 1, 4, -3 };
@@ -300,6 +292,14 @@ TEST(HeapSort, HeapSortOnlognNullArray)
 {
     int res = sort(NULL, 0, (char*)"Onlogn", HEAP);
     TEST_ASSERT_EQUAL_INT(1, res);
+}
+
+TEST(HeapSort, HeapSortOnlognFloatArrayCheck)
+{
+    static float array[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
+    static float fail[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
+    sort(array, 18, (char*)"Onlogn", HEAP);
+    TEST_ASSERT_EQUAL_FLOAT_ARRAY(fail, array, 18);
 }
 
 */

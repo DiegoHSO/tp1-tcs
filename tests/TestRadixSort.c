@@ -222,21 +222,7 @@ TEST(RadixSort, RadixSortInvalidAlgorithm2ArrayCheck)
     TEST_ASSERT_EQUAL_INT_ARRAY(fail, array, 5);
 }
 
-TEST(RadixSort, RadixSortOnUpperBoundContentsArrayCheck)
-{
-    static int array[] = { 2147483447, 2044483647, 56237, 21, 0, 2147483647, 13131313, 1947483647, 13, 21474647 };
-    static int expected[] = { 0, 13, 21, 56237, 13131313, 21474647, 1947483647, 2044483647, 2147483447, 2147483647 };
-    sort(array, 10, (char*)"On", RADIX);
-    TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 10);
-}
 
- TEST(RadixSort, RadixSortOnFloatArrayCheck)
-{
-    static float array[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
-    static float fail[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
-    sort(array, 18, (char*)"On", RADIX);
-    TEST_ASSERT_EQUAL_FLOAT_ARRAY(fail, array, 18);
-}
 
 /* crashando o programa
 
@@ -300,5 +286,21 @@ TEST(RadixSort, RadixSortOnNullArrayWithInvalidLengthArrayCheck)
     static int *array = NULL;
     sort(array, 5, (char*)"On", RADIX);
     TEST_ASSERT_EQUAL(NULL, array);
+}
+
+TEST(RadixSort, RadixSortOnUpperBoundContentsArrayCheck)
+{
+    static int array[] = { 2147483447, 2044483647, 56237, 21, 0, 2147483647, 13131313, 1947483647, 13, 21474647 };
+    static int expected[] = { 0, 13, 21, 56237, 13131313, 21474647, 1947483647, 2044483647, 2147483447, 2147483647 };
+    sort(array, 10, (char*)"On", RADIX);
+    TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 10);
+}
+
+TEST(RadixSort, RadixSortOnFloatArrayCheck)
+{
+    static float array[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
+    static float fail[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
+    sort(array, 18, (char*)"On", RADIX);
+    TEST_ASSERT_EQUAL_FLOAT_ARRAY(fail, array, 18);
 }
 */

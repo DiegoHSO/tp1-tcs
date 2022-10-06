@@ -238,14 +238,6 @@ TEST(MergeSort, MergeSortOnlognBiggerThanUpperBoundContentsArrayCheck)
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 3);
 }
 
- TEST(MergeSort, MergeSortOnlognFloatArrayCheck)
-{
-    static float array[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
-    static float fail[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
-    sort(array, 18, (char*)"Onlogn", MERGE);
-    TEST_ASSERT_EQUAL_FLOAT_ARRAY(fail, array, 18);
-}
-
 TEST(MergeSort, MergeSortOnlognNegAndPosValuesArrayCheck)
 {
     static int array[] = { 5, -2, 3, 0, -1, 2, 1, 4, -3 };
@@ -300,6 +292,14 @@ TEST(MergeSort, MergeSortOnlognNullArrayWithInvalidLengthArrayCheck)
     static int *array = NULL;
     sort(array, 5, (char*)"Onlogn", MERGE);
     TEST_ASSERT_EQUAL(NULL, array);
+}
+
+TEST(MergeSort, MergeSortOnlognFloatArrayCheck)
+{
+    static float array[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
+    static float fail[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
+    sort(array, 18, (char*)"Onlogn", MERGE);
+    TEST_ASSERT_EQUAL_FLOAT_ARRAY(fail, array, 18);
 }
 
 */

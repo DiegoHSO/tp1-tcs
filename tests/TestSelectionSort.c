@@ -238,14 +238,6 @@ TEST(SelectionSort, SelectionSortOn2BiggerThanUpperBoundContentsArrayCheck)
     TEST_ASSERT_EQUAL_INT_ARRAY(expected, array, 3);
 }
 
- TEST(SelectionSort, SelectionSortOn2FloatArrayCheck)
-{
-    static float array[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
-    static float fail[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
-    sort(array, 18, (char*)"On2", SELECTION);
-    TEST_ASSERT_EQUAL_FLOAT_ARRAY(fail, array, 18);
-}
-
 TEST(SelectionSort, SelectionSortOn2NegAndPosValuesArrayCheck)
 {
     static int array[] = { 5, -2, 3, 0, -1, 2, 1, 4, -3 };
@@ -300,5 +292,13 @@ TEST(SelectionSort, SelectionSortOn2NullArrayWithInvalidLengthArrayCheck)
     static int *array = NULL;
     sort(array, 5, (char*)"On2", SELECTION);
     TEST_ASSERT_EQUAL(NULL, array);
+}
+
+TEST(SelectionSort, SelectionSortOn2FloatArrayCheck)
+{
+    static float array[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
+    static float fail[] = { 8.0, 1.0, 20.0, 5.0, 2.0, 10.0, 4.0, 3.0, 15.0, 11.0, 6.0, 14.0, 7.0, 9.0, 17.0, 12.0, 13.0, 16.0 };
+    sort(array, 18, (char*)"On2", SELECTION);
+    TEST_ASSERT_EQUAL_FLOAT_ARRAY(fail, array, 18);
 }
 */
