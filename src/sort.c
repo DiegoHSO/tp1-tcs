@@ -5,7 +5,8 @@ int sort(int* a, int length, char* type, int algorithm) {
     int *s = (int*)malloc(sizeof(int)*length);
     memcpy(s,a,sizeof(int)*(length));
     // TESTE 2
-    if (length <= 2 || length > 20) {
+    // if (length <= 2 || length > 20) {
+     if (length < 2 || length >= 20) {
         status = 1;
     }
     else {
