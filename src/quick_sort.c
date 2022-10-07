@@ -25,7 +25,7 @@ void quick_sort(TYPE A[], int p, int r) {
         swap(TYPE, A[t], A[r]); 
         //Used to avoid O(n^2) worst case
         
-        int q = partition((unsigned int *)A, p, r);
+        int q = partition(A, p, r);
         quick_sort(A, p, q - 1);
         quick_sort(A, q + 1, r);
     }
